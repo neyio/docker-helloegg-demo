@@ -1,33 +1,14 @@
-# egg-demo
-
-egg-demo
-
-## QuickStart
-
-<!-- add docs here for user -->
-
-see [egg docs][egg] for more detail.
-
-### Development
+# DOCKER EGG 示例
 
 ```bash
-$ npm i
-$ npm run dev
-$ open http://localhost:7001/
+docker image build -t egg-demo #创建镜像
+docker container run -p 3000:7001 -it egg-demo #执行镜像内容 
+docker container ls # 显示 container ID
+docker exec -it [container ID] /bin/bash # 进行命令操作
+
+...
+
+# 如需要杀死容器，可以在docker环境中 使用ps aux 找到 CMD片段 执行的 deploy.sh 的PID
+kill [pid]
+# 容器自动退出
 ```
-
-### Deploy
-
-```bash
-$ npm start
-$ npm stop
-```
-
-### npm scripts
-
-- Use `npm run lint` to check code style.
-- Use `npm test` to run unit test.
-- Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
-
-
-[egg]: https://eggjs.org
